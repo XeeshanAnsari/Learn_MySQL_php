@@ -25,10 +25,45 @@
          <td><input type="text" name="result"></td>
          </tr>
          <tr>
-         <td colspan="2"><input type="submit" name="submit" value="Insert"></td>
+         <td colspan="2"><input type="submit" name="submit" value="submit"></td>
          </tr>
        </table>
     </form>
+    <table border="5">
+        <tr>
+          <th>id</th>
+          <th>Student Name</th>
+          <th>School name</th>
+          <th>Roll No</th>
+          <th>Result</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        </tr>
+        
+<?php
+
+   $query1 = "select * from coching ";
+   $run = mysql_query($query1);
+
+   while($row==mysql_fetch_array($run)){
+
+   }
+
+
+?>        
+        
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        
+        </tr>
+        
+    </table>  
 </body>
 </html>
 
