@@ -30,7 +30,7 @@
        </table>
     </form>
     <table border="5">
-        <tr>
+        <tr bgcolor="yellow">
           <th>id</th>
           <th>Student Name</th>
           <th>School name</th>
@@ -42,27 +42,30 @@
         
 <?php
 
-   $query1 = "select * from coching ";
-   $run = mysql_query($query1);
-
-   while($row==mysql_fetch_array($run)){
-
-   }
-
-
+    mysql_connect("localhost","root","");
+    mysql_select_db("coching");
+    $query1 = "SELECT * FROM student ";
+    $run = mysql_query($query1);
+     echo "<br></br></br>";
+   while($row = mysql_fetch_array($run)){
+       $id = $row['id'];
+       $s_name = $row['student_name'];
+       $school_name = $row['school_name'];
+       $roll_no = $row['roll_no'];
+       $s_result = $row['result'];
+       
 ?>        
         
         <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        
+        <td><?php echo $id;   ?></td>
+        <td><?php echo $s_name;   ?></td>
+        <td><?php echo $school_name;   ?></td>
+        <td><?php echo $roll_no;   ?></td>
+        <td><?php echo $s_result;   ?></td>
+        <td><?php echo "Delete";   ?></td>
+        <td><?php echo "Edit";   ?></td>
         </tr>
-        
+   <?php  }  ?>    
     </table>  
 </body>
 </html>
