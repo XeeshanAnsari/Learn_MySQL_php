@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Deleteing Data </title>
+    <title>Update Data </title>
 </head>
 <body>
     <form action="insert.php"  method="post">
@@ -39,7 +39,8 @@
           <th>Delete</th>
           <th>Edit</th>
         </tr>
-        <h1><?php echo @$_GET['deleted']; ?></h1>
+        <h1><?php echo @$_GET['updated']; ?></h1>
+        
 <?php
 
     mysql_connect("localhost","root","");
@@ -55,7 +56,6 @@
        $s_result = $row['result'];
        
 ?>        
-        
         <tr>
         <td><?php echo $id;   ?></td>
         <td><?php echo $s_name;   ?></td>
@@ -63,7 +63,7 @@
         <td><?php echo $roll_no;   ?></td>
         <td><?php echo $s_result;   ?></td>
         <td><a href="deleteData.php?del=<?php echo $id ?>">Delete</a></td>
-        <td><?php echo "Edit";   ?></td>
+        <td><a href="updateData.php?edit=<?php echo $id ?>">Edit</td>
         </tr>
    <?php  }  ?>    
     </table>  
