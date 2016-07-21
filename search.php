@@ -32,18 +32,45 @@
    </br>
    </br>
     <form action="search.php"  method="get"> 
-         <input type="search" name="search" placeholder="search id and name" size="30">
+         <input type="text" name="search" placeholder="search id and name" size="30">
          <input type="submit" name="sub" value="search Now">
     </from>
+
+
 <?php
+ 
+         mysql_connect("localhost","root","");
+         mysql_select_db("coching"); 
+        if (isset($_GET['sub'])){
+          $search  = $_GET['search'];
+          $query_search =" SELECT * from student where id= '$search' or student_name= '$search' ";
+        
+          $run = mysql_query($query_search);
+
+        
+          while($row=mysql_fetch_array($run)){
+              $student_name = $row['student_name'];
+              $school_name = $row['school_name'];
+              $roll_no = $row['roll_no'];
+              $result = $row['result'];
+          }
+      
+ ?>   
+            </br></br>
+            <table width="400" bgcolor="orange" >
+               <tr>
+               <td><?php  echo $student_name ; ?></td>
+               <td><?php  echo $school_name ; ?></td>
+               <td><?php  echo $roll_no ; ?></td>
+               <td><?php  echo $result ;  ?></td>
+               </tr>
+               
+            </table>
+   <?php } ?>         
+
+             
         
 
-
- ?>
-   
-   
-   
-   
    
     <table border="5">
         <tr bgcolor="yellow">
